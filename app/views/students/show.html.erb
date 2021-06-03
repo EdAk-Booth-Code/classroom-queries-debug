@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Student #<%= @the_student.id %> details
+      Student #<%= @the_student.student_id %> details
     </h1>
 
     <div class="row mb-3">
@@ -17,28 +17,28 @@
         First name
       </dt>
       <dd>
-        <%= @the_student.first_name %>
+        <%= @student_info.first_name %>
       </dd>
 
       <dt>
         Last name
       </dt>
       <dd>
-        <%= @the_student.last_name %>
+        <%= @student_info.last_name %>
       </dd>
 
       <dt>
         Email
       </dt>
       <dd>
-        <%= @the_student.email %>
+        <%= @student_info.email %>
       </dd>
 
       <dt>
         Number of courses
       </dt>
       <dd>
-        <%= Enrollment.where({ :student_id => @the_student.id }).count %>
+        <%= Enrollment.where({ :student_id => @the_student.student_id }).count %>
       </dd>
     </dl>
   </div>
@@ -49,7 +49,7 @@
 
 <h3>Course Load</h3>
 <ul>
-  <% enrollments = Enrollment.where({:student_id => @the_student.id }) %>
+  <% enrollments = Enrollment.where({:student_id => @the_student.student_id }) %>
   <% enrollments.each do |enrollment| %>
     <li>
       <% course = Course.where({ :id => enrollment.course_id }).at(0) %>
