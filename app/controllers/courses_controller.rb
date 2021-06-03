@@ -11,7 +11,7 @@ class CoursesController < ApplicationController
 
     matching_courses = Course.where({ :id => the_id })
 
-    @the_course = matching_courses.at(0)
+    @course = matching_courses.at(0)
 
     render({ :template => "courses/show.html.erb" })
   end
